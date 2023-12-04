@@ -1,7 +1,11 @@
-import { useState } from "react";
-
-const Pledge = ({ children, title, minPledge, pledgesLeft }) => {
-
+const Pledge = ({
+  children,
+  title,
+  minPledge,
+  pledgesLeft,
+  setActivePledgeId,
+  id,
+}) => {
   return (
     <div>
       <header>
@@ -12,17 +16,21 @@ const Pledge = ({ children, title, minPledge, pledgesLeft }) => {
       <p>
         <span>{pledgesLeft}</span> left
       </p>
-    <PledgeButton pledgesLeft={pledgesLeft}/>
+      <PledgeButton
+        id={id}
+        setActivePledgeId={setActivePledgeId}
+        pledgesLeft={pledgesLeft}
+      />
     </div>
   );
 };
 
-const PledgeButton = ({pledgesLeft}) => {
-    return (
-        <button disabled={pledgesLeft === 0}>
-            {pledgesLeft === 0 ? "Out of Stock" : "Select Reward"}
-        </button>
-    )
-}
+const PledgeButton = ({ id, setActivePledgeId, pledgesLeft }) => {
+  return (
+    <button onClick={() => setActivePledgeId(id)} disabled={pledgesLeft === 0}>
+      {pledgesLeft === 0 ? "Out of Stock" : "Select Reward"}
+    </button>
+  );
+};
 
 export default Pledge;

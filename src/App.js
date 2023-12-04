@@ -1,5 +1,7 @@
 import PledgeContainer from "./components/Pledges/PledgeContainer";
 
+import "./style.css"
+
 
 function App() {
   return (
