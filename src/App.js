@@ -1,3 +1,4 @@
+import PledgeContainer from "./components/Pledges/PledgeContainer";
 
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
+      <PledgeContainer/>
     </div>
   );
 }
