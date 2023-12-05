@@ -25,4 +25,12 @@ const pledgeData = [
   },
 ];
 
-export default pledgeData
+
+const statistics = {
+  pledgeGoal: 100000,
+  currentPledgeAmmount: 89914,
+  backers: 5007,
+  daysLeft: 56
+}
+
+export {pledgeData, statistics}

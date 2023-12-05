@@ -1,5 +1,5 @@
 import { useState } from "react";
-import pledgeData from "../../pledgeData";
+import {pledgeData} from "../../pledgeData";
 import Pledge from "./Pledge";
 import {ModalPledge, DefaultModalPledge} from "./ModalPledge";
 
