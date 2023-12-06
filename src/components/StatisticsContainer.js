@@ -1,10 +1,6 @@
-import { useState } from "react";
-import { statistics } from "../pledgeData";
 import { formatNumber } from "../helper";
 
-const StatisticsContainer = () => {
-  const [statisticData, setStatisticData] = useState(statistics);
-
+const StatisticsContainer = ({ statisticData }) => {
   const { currentPledgeAmmount, pledgeGoal, backers, daysLeft } = statisticData;
 
   const goalPercentage = Math.round((currentPledgeAmmount / pledgeGoal) * 100);

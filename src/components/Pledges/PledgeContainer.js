@@ -1,25 +1,26 @@
-import { useState } from "react";
-import {pledgeData} from "../../pledgeData";
+import { pledgeData } from "../../pledgeData";
 import Pledge from "./Pledge";
-import {ModalPledge, DefaultModalPledge} from "./ModalPledge";
+import { ModalPledge, DefaultModalPledge } from "./ModalPledge";
 
-const PledgeContainer = () => {
-  const [activePledgeId, setActivePledgeId] = useState("");
+const PledgeContainer = ({ activePledgeId, setActivePledgeId, statisticData, setStatisticData }) => {
 
-  console.log(activePledgeId);
 
   return (
     <section>
       {activePledgeId ? (
         <form>
-            <DefaultModalPledge
-                id={"defualt"}
-                title={"Pledge with no reward"}
-                isActive={"defualt" === activePledgeId}
-                setActivePledgeId={setActivePledgeId}
-            >
-                Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email
-            </DefaultModalPledge>
+          <DefaultModalPledge
+            id={"defualt"}
+            title={"Pledge with no reward"}
+            isActive={"defualt" === activePledgeId}
+            setActivePledgeId={setActivePledgeId}
+            statisticData={statisticData}
+                setStatisticData={setStatisticData}
+          >
+            Choose to support us without a reward if you simply believe in our
+            project. As a backer, you will be signed up to receive product
+            updates via email
+          </DefaultModalPledge>
           {pledgeData.map((pledge) => {
             const {
               title,
@@ -37,6 +38,8 @@ const PledgeContainer = () => {
                 pledgesLeft={defaultPledgesAmmount}
                 isActive={key === activePledgeId}
                 setActivePledgeId={setActivePledgeId}
+                statisticData={statisticData}
+                setStatisticData={setStatisticData}
               >
                 {description}
               </ModalPledge>

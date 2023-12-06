@@ -1,3 +1,5 @@
+import { useRef, useState } from "react";
+
 const ModalPledge = ({
   children,
   title,
@@ -6,10 +8,25 @@ const ModalPledge = ({
   isActive,
   id,
   setActivePledgeId,
+  statisticData,
+  setStatisticData
 }) => {
   const handlePledgeChange = () => {
     setActivePledgeId(id);
   };
+
+  const {currentPledgeAmmount, backers} = statisticData
+
+  const updateStatistics = (ammount) => {
+    console.log(currentPledgeAmmount)
+    console.log(ammount)
+    console.log(currentPledgeAmmount + ammount)
+    setStatisticData({
+      ...statisticData,
+      currentPledgeAmmount: currentPledgeAmmount + ammount,
+      backers: backers +  1
+    })
+  }
 
   return (
     <div onClick={handlePledgeChange}>
@@ -33,7 +50,7 @@ const ModalPledge = ({
       <p>
         <span>{pledgesLeft}</span> left
       </p>
-      {isActive && <PledgeInput minPledge={minPledge} />}
+      {isActive && <PledgeInput updateStatistics={updateStatistics} minPledge={minPledge} />}
     </div>
   );
 };
@@ -44,6 +61,8 @@ const DefaultModalPledge = ({
   setActivePledgeId,
   isActive,
   children,
+  statisticData,
+  setStatisticData
 }) => {
 
   const handlePledgeChange = () => {
@@ -72,14 +91,23 @@ const DefaultModalPledge = ({
   );
 };
 
-const PledgeInput = ({ minPledge }) => {
+const PledgeInput = ({ minPledge, updateStatistics }) => {
+
+  const [pledgeAmmount, setPledgeAmmount] = useState(minPledge)
+
+
+  const handlePledgeSubmit = (e) => {
+    e.preventDefault()
+    updateStatistics(pledgeAmmount)
+  }
+
   return (
     <div>
       <p>Enter your pledge</p>
       <div>
         $
-        <input min={minPledge} type="number" defaultValue={minPledge} />
-        <button>Continue</button>
+        <input onChange={(e) => setPledgeAmmount(e.target.value)} min={minPledge} type="number" value={pledgeAmmount} />
+        <button onClick={handlePledgeSubmit}>Continue</button>
       </div>
     </div>
   );
