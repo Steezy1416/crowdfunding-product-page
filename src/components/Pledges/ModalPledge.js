@@ -18,9 +18,6 @@ const ModalPledge = ({
   const {currentPledgeAmmount, backers} = statisticData
 
   const updateStatistics = (ammount) => {
-    console.log(currentPledgeAmmount)
-    console.log(ammount)
-    console.log(currentPledgeAmmount + ammount)
     setStatisticData({
       ...statisticData,
       currentPledgeAmmount: currentPledgeAmmount + ammount,
