@@ -7,7 +7,7 @@ const Pledge = ({
   id,
 }) => {
   return (
-    <div>
+    <div className={pledgesLeft === 0 ? "disabledPledge" : "pledge"}>
       <header>
         <h3>{title}</h3>
         <p>Pledge ${minPledge} or more</p>
