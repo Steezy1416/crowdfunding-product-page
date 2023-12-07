@@ -7,6 +7,7 @@ import { pledgeData, statistics } from "./pledgeData";
 import { bookmark, mastercraftLogo } from "./images/index";
 import ModalPledgeContainer from "./components/Pledges/ModalPledgeContainer";
 import ConfirmationModal from "./components/ConfirmationModal";
+import Header from "./components/Header";
 
 function App() {
   const [isBookmarked, setIsBookmarked] = useState("");
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <Header/>
       <main>
         <div>
           <div>
