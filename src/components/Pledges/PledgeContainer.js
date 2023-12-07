@@ -1,4 +1,3 @@
-import { pledgeData } from "../../pledgeData";
 import Pledge from "./Pledge";
 import { ModalPledge, DefaultModalPledge } from "./ModalPledge";
 
@@ -8,6 +7,8 @@ const PledgeContainer = ({
   statisticData,
   setStatisticData,
   setActiveConfirmation,
+  currentPledgeData,
+  setCurrentPledgeData,
 }) => {
   return (
     <section>
@@ -26,7 +27,7 @@ const PledgeContainer = ({
             project. As a backer, you will be signed up to receive product
             updates via email
           </DefaultModalPledge>
-          {pledgeData.map((pledge) => {
+          {currentPledgeData.map((pledge) => {
             const {
               title,
               description,
@@ -46,6 +47,8 @@ const PledgeContainer = ({
                 statisticData={statisticData}
                 setStatisticData={setStatisticData}
                 setActiveConfirmation={setActiveConfirmation}
+                currentPledgeData={currentPledgeData}
+                setCurrentPledgeData={setCurrentPledgeData}
               >
                 {description}
               </ModalPledge>
@@ -54,7 +57,7 @@ const PledgeContainer = ({
         </form>
       ) : (
         <>
-          {pledgeData.map((pledge) => {
+          {currentPledgeData.map((pledge) => {
             const {
               title,
               description,

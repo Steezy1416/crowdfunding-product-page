@@ -7,6 +7,8 @@ const ModalPledgeContainer = ({
   statisticData,
   setStatisticData,
   setActiveConfirmation,
+  currentPledgeData,
+  setCurrentPledgeData,
 }) => {
   return (
     <div>
@@ -26,6 +28,8 @@ const ModalPledgeContainer = ({
         statisticData={statisticData}
         setStatisticData={setStatisticData}
         setActiveConfirmation={setActiveConfirmation}
+        currentPledgeData={currentPledgeData}
+        setCurrentPledgeData={setCurrentPledgeData}
       />
     </div>
   );

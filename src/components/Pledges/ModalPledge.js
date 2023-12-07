@@ -11,6 +11,8 @@ const ModalPledge = ({
   statisticData,
   setStatisticData,
   setActiveConfirmation,
+  currentPledgeData,
+  setCurrentPledgeData,
 }) => {
   const handlePledgeChange = () => {
     setActivePledgeId(id);
@@ -27,6 +29,17 @@ const ModalPledge = ({
     });
     setActivePledgeId("");
     setActiveConfirmation(true);
+    const updatedData = currentPledgeData.map((pledge) => {
+      if (pledge.key === id) {
+        return {
+          ...pledge,
+          defaultPledgesAmmount: pledge.defaultPledgesAmmount - 1,
+        };
+      } else {
+        return pledge;
+      }
+    });
+    setCurrentPledgeData(updatedData);
   };
 
   return (

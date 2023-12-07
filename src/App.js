@@ -3,7 +3,7 @@ import PledgeContainer from "./components/Pledges/PledgeContainer";
 import StatisticsContainer from "./components/StatisticsContainer";
 
 import "./style.css";
-import { statistics } from "./pledgeData";
+import { pledgeData, statistics } from "./pledgeData";
 import { bookmark, mastercraftLogo } from "./images/index";
 import ModalPledgeContainer from "./components/Pledges/ModalPledgeContainer";
 import ConfirmationModal from "./components/ConfirmationModal";
@@ -14,6 +14,7 @@ function App() {
 
   const [statisticData, setStatisticData] = useState(statistics);
   const [activeConfirmation, setActiveConfirmation] = useState(false);
+  const [currentPledgeData, setCurrentPledgeData] = useState(pledgeData)
 
   return (
     <div className="App">
@@ -61,6 +62,8 @@ function App() {
                 statisticData={statisticData}
                 setStatisticData={setStatisticData}
                 setActiveConfirmation={setActiveConfirmation}
+                currentPledgeData={currentPledgeData}
+                setCurrentPledgeData={setCurrentPledgeData}
               />
             ) : (
               <PledgeContainer
@@ -68,6 +71,8 @@ function App() {
                 setActivePledgeId={setActivePledgeId}
                 statisticData={statisticData}
                 setStatisticData={setStatisticData}
+                currentPledgeData={currentPledgeData}
+                setCurrentPledgeData={setCurrentPledgeData}
               />
             )}
           </div>
