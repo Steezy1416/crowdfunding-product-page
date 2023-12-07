@@ -127,6 +127,7 @@ const DefaultModalPledge = ({
 
 const PledgeInput = ({ minPledge, updateStatistics }) => {
   const [pledgeAmmount, setPledgeAmmount] = useState(minPledge);
+  console.log(pledgeAmmount);
 
   const handlePledgeSubmit = (e) => {
     e.preventDefault();
@@ -139,7 +140,7 @@ const PledgeInput = ({ minPledge, updateStatistics }) => {
       <div>
         $
         <input
-          onChange={(e) => setPledgeAmmount(e.target.value)}
+          onChange={(e) => setPledgeAmmount(parseInt(e.target.value))}
           min={minPledge}
           type="number"
           value={pledgeAmmount}
