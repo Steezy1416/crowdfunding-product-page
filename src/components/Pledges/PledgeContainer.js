@@ -2,9 +2,13 @@ import { pledgeData } from "../../pledgeData";
 import Pledge from "./Pledge";
 import { ModalPledge, DefaultModalPledge } from "./ModalPledge";
 
-const PledgeContainer = ({ activePledgeId, setActivePledgeId, statisticData, setStatisticData }) => {
-
-
+const PledgeContainer = ({
+  activePledgeId,
+  setActivePledgeId,
+  statisticData,
+  setStatisticData,
+  setActiveConfirmation,
+}) => {
   return (
     <section>
       {activePledgeId ? (
@@ -15,7 +19,8 @@ const PledgeContainer = ({ activePledgeId, setActivePledgeId, statisticData, set
             isActive={"defualt" === activePledgeId}
             setActivePledgeId={setActivePledgeId}
             statisticData={statisticData}
-                setStatisticData={setStatisticData}
+            setStatisticData={setStatisticData}
+            setActiveConfirmation={setActiveConfirmation}
           >
             Choose to support us without a reward if you simply believe in our
             project. As a backer, you will be signed up to receive product
@@ -40,6 +45,7 @@ const PledgeContainer = ({ activePledgeId, setActivePledgeId, statisticData, set
                 setActivePledgeId={setActivePledgeId}
                 statisticData={statisticData}
                 setStatisticData={setStatisticData}
+                setActiveConfirmation={setActiveConfirmation}
               >
                 {description}
               </ModalPledge>

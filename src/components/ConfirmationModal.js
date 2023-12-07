@@ -1,0 +1,18 @@
+import { checkIcon } from "../images";
+
+const ConfirmationModal = ({ setActiveConfirmation }) => {
+  return (
+    <div>
+      <img alt="" src={checkIcon} />
+      <h2>Thanks for your support!</h2>
+      <p>
+        Your pledge brings us one step closer to sharing Mastercraft Bamboo
+        Monitor Riser worldwide. You will get an email once our campaign is
+        completed.
+      </p>
+      <button onClick={() => setActiveConfirmation(false)}>Got it!</button>
+    </div>
+  );
+};
+
+export default ConfirmationModal;

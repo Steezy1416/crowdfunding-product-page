@@ -6,12 +6,14 @@ import "./style.css";
 import { statistics } from "./pledgeData";
 import { bookmark, mastercraftLogo } from "./images/index";
 import ModalPledgeContainer from "./components/Pledges/ModalPledgeContainer";
+import ConfirmationModal from "./components/ConfirmationModal";
 
 function App() {
   const [isBookmarked, setIsBookmarked] = useState("");
   const [activePledgeId, setActivePledgeId] = useState("");
 
   const [statisticData, setStatisticData] = useState(statistics);
+  const [activeConfirmation, setActiveConfirmation] = useState(false);
 
   return (
     <div className="App">
@@ -58,6 +60,7 @@ function App() {
                 setActivePledgeId={setActivePledgeId}
                 statisticData={statisticData}
                 setStatisticData={setStatisticData}
+                setActiveConfirmation={setActiveConfirmation}
               />
             ) : (
               <PledgeContainer
@@ -69,6 +72,9 @@ function App() {
             )}
           </div>
         </div>
+        {activeConfirmation && (
+          <ConfirmationModal setActiveConfirmation={setActiveConfirmation} />
+        )}
       </main>
     </div>
   );

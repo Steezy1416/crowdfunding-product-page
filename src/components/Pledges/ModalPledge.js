@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 const ModalPledge = ({
   children,
@@ -9,21 +9,25 @@ const ModalPledge = ({
   id,
   setActivePledgeId,
   statisticData,
-  setStatisticData
+  setStatisticData,
+  setActiveConfirmation,
 }) => {
   const handlePledgeChange = () => {
     setActivePledgeId(id);
   };
 
-  const {currentPledgeAmmount, backers} = statisticData
+  const { currentPledgeAmmount, backers } = statisticData;
 
-  const updateStatistics = (ammount) => {
+  const updateStatistics = (ammount, e) => {
+    e.stopPropagation();
     setStatisticData({
       ...statisticData,
       currentPledgeAmmount: currentPledgeAmmount + ammount,
-      backers: backers +  1
-    })
-  }
+      backers: backers + 1,
+    });
+    setActivePledgeId("");
+    setActiveConfirmation(true);
+  };
 
   return (
     <div onClick={handlePledgeChange}>
@@ -47,7 +51,12 @@ const ModalPledge = ({
       <p>
         <span>{pledgesLeft}</span> left
       </p>
-      {isActive && <PledgeInput updateStatistics={updateStatistics} minPledge={minPledge} />}
+      {isActive && (
+        <PledgeInput
+          updateStatistics={updateStatistics}
+          minPledge={minPledge}
+        />
+      )}
     </div>
   );
 };
@@ -59,11 +68,24 @@ const DefaultModalPledge = ({
   isActive,
   children,
   statisticData,
-  setStatisticData
+  setStatisticData,
+  setActiveConfirmation,
 }) => {
+  const { currentPledgeAmmount, backers } = statisticData;
 
   const handlePledgeChange = () => {
     setActivePledgeId(id);
+  };
+
+  const updateStatistics = (ammount, e) => {
+    e.stopPropagation();
+    setStatisticData({
+      ...statisticData,
+      currentPledgeAmmount: currentPledgeAmmount + ammount,
+      backers: backers + 1,
+    });
+    setActivePledgeId("");
+    setActiveConfirmation(true);
   };
 
   return (
@@ -83,27 +105,32 @@ const DefaultModalPledge = ({
         </div>
       </header>
       <p>{children}</p>
-      {isActive && <PledgeInput minPledge={0} />}
+      {isActive && (
+        <PledgeInput minPledge={0} updateStatistics={updateStatistics} />
+      )}
     </div>
   );
 };
 
 const PledgeInput = ({ minPledge, updateStatistics }) => {
-
-  const [pledgeAmmount, setPledgeAmmount] = useState(minPledge)
-
+  const [pledgeAmmount, setPledgeAmmount] = useState(minPledge);
 
   const handlePledgeSubmit = (e) => {
-    e.preventDefault()
-    updateStatistics(pledgeAmmount)
-  }
+    e.preventDefault();
+    updateStatistics(pledgeAmmount, e);
+  };
 
   return (
     <div>
       <p>Enter your pledge</p>
       <div>
         $
-        <input onChange={(e) => setPledgeAmmount(e.target.value)} min={minPledge} type="number" value={pledgeAmmount} />
+        <input
+          onChange={(e) => setPledgeAmmount(e.target.value)}
+          min={minPledge}
+          type="number"
+          value={pledgeAmmount}
+        />
         <button onClick={handlePledgeSubmit}>Continue</button>
       </div>
     </div>
