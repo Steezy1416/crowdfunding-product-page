@@ -337,6 +337,98 @@ h1 {
 
 /* end of first and second card styles */
 
+.content-card:nth-child(2) {
+  gap: 2rem;
+}
+
+.content-card:nth-child(3) h2 {
+  font-size: 1.2rem;
+  margin-right: auto;
+}
+
+.content-card:nth-child(3) p{
+  color: var(--dark-gray);
+  font-size: .825rem;
+}
+
+@media (min-width: 700px){
+  .content-card:nth-child(3) p {
+    font-size: 1rem;
+  }
+}
+
+
+.pledge-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pledge {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 1.5rem;
+  text-align: start;
+}
+
+.pledge-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.pledge header {
+  font-size: .825rem;
+}
+
+.pledge header .pledge-tier {
+  color: var(--primary-01);
+}
+
+.pledge-container .pledge .pledges-left {
+  font-size: 1rem;
+}
+
+.pledges-left-highlight {
+  font-size: 2rem;
+  font-weight: var(--fw-700);
+  color: black;
+}
+
+.disabledPledge {
+  opacity: .4;
+}
+
+button:disabled {
+  background-color: var(--dark-gray);
+}
+
+@media (min-width: 700px){
+  .pledge header, .pledge-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 /* start of confirmation modal styles */
 
 .confirmation-card {

@@ -11,7 +11,7 @@ const PledgeContainer = ({
   setCurrentPledgeData,
 }) => {
   return (
-    <section>
+    <section className="pledge-container">
       {activePledgeId ? (
         <form>
           <DefaultModalPledge

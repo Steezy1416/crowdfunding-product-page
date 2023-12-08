@@ -57,7 +57,7 @@ function App() {
             </div>
           </div>
           <StatisticsContainer statisticData={statisticData} />
-          <div>
+          <div className="content-card">
             <h2>About this project</h2>
             <p>
               The Mastercraft Bamboo Monitor Riser is a sturdy and stylish
