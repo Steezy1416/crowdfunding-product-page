@@ -4,7 +4,7 @@ import StatisticsContainer from "./components/StatisticsContainer";
 
 import "./style.css";
 import { pledgeData, statistics } from "./pledgeData";
-import { bookmark, mastercraftLogo } from "./images/index";
+import {mastercraftLogo } from "./images/index";
 import ModalPledgeContainer from "./components/Pledges/ModalPledgeContainer";
 import ConfirmationModal from "./components/ConfirmationModal";
 import Header from "./components/Header";
@@ -15,26 +15,43 @@ function App() {
 
   const [statisticData, setStatisticData] = useState(statistics);
   const [activeConfirmation, setActiveConfirmation] = useState(false);
-  const [currentPledgeData, setCurrentPledgeData] = useState(pledgeData)
+  const [currentPledgeData, setCurrentPledgeData] = useState(pledgeData);
 
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <main>
-        <div>
-          <div>
-            <img alt="" src={mastercraftLogo} />
+        <div className="content-container">
+          <div className="content-card">
+            <img className="mastercraftLogo" alt="" src={mastercraftLogo} />
             <h1>Mastercraft Bamboo Monitor Riser</h1>
             <p>
               A beautiful & handcrafted monitor stant to reduce neck and eye
               strain
             </p>
-            <div>
-              <button onClick={() => setActivePledgeId("open")}>
+            <div className="btn-container">
+              <button
+                className="pledge-btn grow"
+                onClick={() => setActivePledgeId("open")}
+              >
                 Back this project
               </button>
-              <button onClick={() => setIsBookmarked(!isBookmarked)}>
-                <img alt="" src={bookmark} />
+              <button
+                className="bookmark-btn"
+                onClick={() => setIsBookmarked(!isBookmarked)}
+              >
+                <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <circle
+                      fill={isBookmarked ? "#52b788" : "#2F2F2F"}
+                      cx="28"
+                      cy="28"
+                      r="28"
+                    />
+                    <path fill="#ffffff" d="M23 19v18l5-5.058L33 37V19z" />
+                  </g>
+                </svg>
+
                 {isBookmarked ? "Bookmarked" : "Bookmark"}
               </button>
             </div>
@@ -78,10 +95,13 @@ function App() {
             )}
           </div>
         </div>
-        {activeConfirmation && (
-          <ConfirmationModal setActiveConfirmation={setActiveConfirmation} />
-        )}
       </main>
+      {activeConfirmation && (
+        <div className="confirmation-modal-container">
+          <div className="confirmation-overlay"></div>
+          <ConfirmationModal setActiveConfirmation={setActiveConfirmation} />
+        </div>
+      )}
     </div>
   );
 }

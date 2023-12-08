@@ -6,17 +6,17 @@ const StatisticsContainer = ({ statisticData }) => {
   const goalPercentage = Math.round((currentPledgeAmmount / pledgeGoal) * 100);
 
   return (
-    <div>
-      <div>
-        <p>
-          <span>${formatNumber(currentPledgeAmmount)}</span> of $
+    <div className="content-card">
+      <div className="statistic-container">
+        <p className="statistic">
+          <span className="statistic-highlight">${formatNumber(currentPledgeAmmount)}</span> of $
           {formatNumber(pledgeGoal)} backed
         </p>
-        <p>
-          <span>{formatNumber(backers)}</span> total backers
+        <p className="statistic">
+          <span className="statistic-highlight">{formatNumber(backers)}</span> total backers
         </p>
-        <p>
-          <span>{daysLeft}</span> days left
+        <p className="statistic">
+          <span className="statistic-highlight">{daysLeft}</span> days left
         </p>
       </div>
 
