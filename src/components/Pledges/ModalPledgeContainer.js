@@ -11,14 +11,14 @@ const ModalPledgeContainer = ({
   setCurrentPledgeData,
 }) => {
   return (
-    <div>
-      <div>
+    <div className="modal-pledge-container">
+      <div className="modal-pledge-header">
         <h2>Back this project</h2>
-        <button onClick={() => setActivePledgeId("")}>
-          <img alt="" src={closeModalIcon} />
+        <button className="closePledgeModalIcon" onClick={() => setActivePledgeId("")}>
+          <img  alt="" src={closeModalIcon} />
         </button>
       </div>
-      <p>
+      <p className="modal-pledge-subtext">
         Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
         the world?
       </p>

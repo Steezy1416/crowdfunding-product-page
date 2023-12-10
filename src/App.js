@@ -4,7 +4,7 @@ import StatisticsContainer from "./components/StatisticsContainer";
 
 import "./style.css";
 import { pledgeData, statistics } from "./pledgeData";
-import {mastercraftLogo } from "./images/index";
+import { mastercraftLogo } from "./images/index";
 import ModalPledgeContainer from "./components/Pledges/ModalPledgeContainer";
 import ConfirmationModal from "./components/ConfirmationModal";
 import Header from "./components/Header";
@@ -73,29 +73,31 @@ function App() {
               USB sticks to be stored under the stand.
             </p>
 
-            {activePledgeId ? (
-              <ModalPledgeContainer
-                activePledgeId={activePledgeId}
-                setActivePledgeId={setActivePledgeId}
-                statisticData={statisticData}
-                setStatisticData={setStatisticData}
-                setActiveConfirmation={setActiveConfirmation}
-                currentPledgeData={currentPledgeData}
-                setCurrentPledgeData={setCurrentPledgeData}
-              />
-            ) : (
-              <PledgeContainer
-                activePledgeId={activePledgeId}
-                setActivePledgeId={setActivePledgeId}
-                statisticData={statisticData}
-                setStatisticData={setStatisticData}
-                currentPledgeData={currentPledgeData}
-                setCurrentPledgeData={setCurrentPledgeData}
-              />
-            )}
+            <PledgeContainer
+              activePledgeId={activePledgeId}
+              setActivePledgeId={setActivePledgeId}
+              statisticData={statisticData}
+              setStatisticData={setStatisticData}
+              currentPledgeData={currentPledgeData}
+              setCurrentPledgeData={setCurrentPledgeData}
+            />
           </div>
         </div>
       </main>
+      {activePledgeId && (
+        <div className="pledge-modal-container">
+          <div className="pledge-modal-overlay"/>
+          <ModalPledgeContainer
+            activePledgeId={activePledgeId}
+            setActivePledgeId={setActivePledgeId}
+            statisticData={statisticData}
+            setStatisticData={setStatisticData}
+            setActiveConfirmation={setActiveConfirmation}
+            currentPledgeData={currentPledgeData}
+            setCurrentPledgeData={setCurrentPledgeData}
+          />
+        </div>
+      )}
       {activeConfirmation && (
         <div className="confirmation-modal-container">
           <div className="confirmation-overlay"></div>

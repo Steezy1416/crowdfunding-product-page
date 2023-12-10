@@ -43,26 +43,26 @@ const ModalPledge = ({
   };
 
   return (
-    <div onClick={handlePledgeChange}>
+    <div className={pledgesLeft === 0 ? "disabledPledge pledge" : "pledge"} onClick={handlePledgeChange}>
       <label className="sr-only" htmlFor={title}>
         {title}
       </label>
-      <header>
+      <header className="pledge-modal-header">
         <input
           checked={isActive}
           onChange={handlePledgeChange}
           id={title}
           type="radio"
         />
-        <div>
+        <div className="modal-pledge-subHeader">
           <h3>{title}</h3>
-          <p>Pledge ${minPledge} or more</p>
-          <span>{pledgesLeft}</span> left
+          <p className="pledge-tier">Pledge ${minPledge} or more</p>
+          <p className="modal-pledges-left desktop-only"><span className="modal-pledges-left-highlight">{pledgesLeft}</span> left</p>
         </div>
       </header>
       <p>{children}</p>
-      <p>
-        <span>{pledgesLeft}</span> left
+      <p className="modal-pledges-left pledge-mobile-only">
+        <span className="modal-pledges-left-highlight">{pledgesLeft}</span> left
       </p>
       {isActive && (
         <PledgeInput
@@ -102,18 +102,18 @@ const DefaultModalPledge = ({
   };
 
   return (
-    <div onClick={handlePledgeChange}>
+    <div className={"pledge"} onClick={handlePledgeChange}>
       <label className="sr-only" htmlFor={title}>
         {title}
       </label>
-      <header>
+      <header className="pledge-modal-header">
         <input
           checked={isActive}
           onChange={handlePledgeChange}
           id={title}
           type="radio"
         />
-        <div>
+        <div className="modal-pledge-subHeader">
           <h3>{title}</h3>
         </div>
       </header>
@@ -135,17 +135,20 @@ const PledgeInput = ({ minPledge, updateStatistics }) => {
   };
 
   return (
-    <div>
+    <div className="pledge-input-container">
       <p>Enter your pledge</p>
-      <div>
-        $
-        <input
-          onChange={(e) => setPledgeAmmount(parseInt(e.target.value))}
-          min={minPledge}
-          type="number"
-          value={pledgeAmmount}
-        />
-        <button onClick={handlePledgeSubmit}>Continue</button>
+      <div className="pledge-input-action-container">
+        <div className="pledge-input-outer">
+          $
+          <input
+          className="pledge-input"
+            onChange={(e) => setPledgeAmmount(parseInt(e.target.value))}
+            min={minPledge}
+            type="number"
+            value={pledgeAmmount}
+          />
+        </div>
+        <button className="pledge-btn" onClick={handlePledgeSubmit}>Continue</button>
       </div>
     </div>
   );
