@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Crowdfund Products Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="1496" alt="Screenshot 2023-12-13 at 2 44 52 PM" src="https://github.com/Steezy1416/produce-practice-pro/assets/105886307/47dfaa0a-e6e0-4b14-8d5c-30f5e46e4685">
 
-## Available Scripts
+Crowdfund is a simple web page that displays products that users can pledge for or just pledge to support the project. This project is based on the [crowdfunding-product-page](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR) challenge from Frontend Mentor. The final solution can be accessed at [crowdfund-products-page](https://crowdfund-products-page.netlify.app/).
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Why am I doing this challenge?](#why-am-i-doing-this-challenge)
+- [Technologies](#technologies)
+- [Features](#features)
+- [Things I can Improve on](#things-i-can-improve-on)
+- [Where can I view this page?](#where-can-i-view-this-page)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Why am I doing this challenge?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I personally feel like I struggle with not knowing what to build for a personal project, and if I do come up with an idea, it's a struggle to come up with the design for the application. I thought doing this challenge would be a fun way to actually apply some of the things that I have learned so far, see what weaknesses I have, and gain a basic sense of good UX/UI design from looking at the designs. Essentially, my goal was just to have fun, learn, and improve.
 
-### `npm test`
+## Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- JSX
+- CSS
+- Netlify
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Make Pledges!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The user can choose what type of pledge they want to make from a select list.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="977" alt="Screenshot 2023-12-13 at 3 14 21 PM" src="https://github.com/Steezy1416/produce-practice-pro/assets/105886307/10bf9557-1ce1-4d76-b9e9-7ba4906d624a">
 
-### `npm run eject`
+### Data Manipulation!
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The page comes with initial data to simulate a real-world scenario, and when the user makes a pledge, it updates that data and lets the user see the changes.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="1435" alt="Screenshot 2023-12-13 at 3 23 23 PM" src="https://github.com/Steezy1416/produce-practice-pro/assets/105886307/0192f95e-48ee-4143-8760-6a9541f1d78e">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Responsive!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The page is responsive and works with small and large screens.
 
-## Learn More
+<img width="572" alt="Screenshot 2023-12-13 at 3 28 45 PM" src="https://github.com/Steezy1416/produce-practice-pro/assets/105886307/863e95cc-a9fc-481a-860f-f45cade724ef">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Things I can Improve on
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- ### Organization
 
-### Code Splitting
+     While working on the project, I found that I need to come up with more effective names for variables and file names. Because a lot of the names were similar, I would find myself going to the wrong files or styling the wrong things.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- ### Styles
 
-### Analyzing the Bundle Size
+    I feel like I could better manage my stylesheet or start implementing utility classes so there is less dry code.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- ### Planning
 
-### Making a Progressive Web App
+    I actually felt like my planning was good in the beginning, but I made a critical mistake where when the user selects a pledge and a modal pops up, it displays the same pledges but you can add inputs. That was the correct behaviour but I forgot to consider that the the initial pledges were supposed to stay the same but instead they would change to the modal version so there would be 2 modal pledge containers at one time. I later need to change the structure of something and in this project it was not a big deal but it is a mistake that could have been avoided with better planning and observation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Where can I view this page?
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To view this page you can go to the [crowdfund-products-page](https://crowdfund-products-page.netlify.app/) website.
