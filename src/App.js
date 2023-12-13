@@ -41,7 +41,7 @@ function App() {
                 onClick={() => setIsBookmarked(!isBookmarked)}
               >
                 <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-                  <g fill="none" fill-rule="evenodd">
+                  <g fill="none" fillRule="evenodd">
                     <circle
                       fill={isBookmarked ? "#52b788" : "#2F2F2F"}
                       cx="28"
@@ -86,7 +86,10 @@ function App() {
       </main>
       {activePledgeId && (
         <div className="pledge-modal-container">
-          <div className="pledge-modal-overlay"/>
+          <div
+            onClick={() => setActivePledgeId("")}
+            className="pledge-modal-overlay"
+          />
           <ModalPledgeContainer
             activePledgeId={activePledgeId}
             setActivePledgeId={setActivePledgeId}
@@ -100,7 +103,10 @@ function App() {
       )}
       {activeConfirmation && (
         <div className="confirmation-modal-container">
-          <div className="confirmation-overlay"></div>
+          <div
+            onClick={() => setActiveConfirmation(false)}
+            className="confirmation-overlay"
+          ></div>
           <ConfirmationModal setActiveConfirmation={setActiveConfirmation} />
         </div>
       )}

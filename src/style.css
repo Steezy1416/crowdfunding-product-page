@@ -126,9 +126,26 @@ h6 {
   margin: 0 auto;
 }
 
+.nav-link-container li {
+  font-size: 1.1rem;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link-container li:hover {
+  color: var(--primary-01);
+  border-bottom: 2px solid white;
+  transition: color 300ms;
+}
+
 @media (max-width: 600px) {
   .mobile-only {
     display: block;
+  }
+
+  .nav-link-container li:hover {
+    color: var(--primary-01);
+    border-bottom: initial;
+    transition: color 300ms;
   }
 
   .closedNav {
@@ -183,7 +200,8 @@ h6 {
 /* first and second card styles */
 
 main {
-  background-color: var(--dark-gray);
+  background-color: hsl(0, 0%, 95%);
+  padding-bottom: 4rem;
 }
 
 .content-container {
@@ -211,6 +229,7 @@ main {
   gap: 1rem;
   align-items: center;
   width: 100%;
+  border: 1px solid hsl(0, 0%, 90%);
 }
 
 .mastercraftLogo {
@@ -249,6 +268,7 @@ h1 {
   font-size: 0;
   border: none;
   background: transparent;
+  border-radius: 50%;
 }
 
 .content-card:nth-child(2) {
@@ -336,6 +356,8 @@ h1 {
 }
 
 /* end of first and second card styles */
+
+/* start of pledge styles */
 
 .content-card:nth-child(2) {
   gap: 2rem;
@@ -426,6 +448,7 @@ button:disabled {
   inset: 0;
   display: grid;
   place-items: center;
+  margin: 0 auto;
 }
 
 .pledge-modal-overlay {
@@ -442,6 +465,7 @@ button:disabled {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
   height: 80%;
   overflow: scroll;
   padding: 1.5rem;
@@ -558,6 +582,8 @@ button:disabled {
   }
 }
 
+/* end of pledge styles */
+
 /* start of confirmation modal styles */
 
 .confirmation-card {
@@ -623,3 +649,71 @@ button:disabled {
 }
 
 /* end start of confirmation modal styles */
+
+/* start of active states */
+
+.bookmark-btn:hover {
+  background-color: gray;
+  color: white;
+  transition: background-color 300ms;
+}
+
+.pledge:has(input):hover {
+  border: 1px solid var(--primary-02);
+}
+
+.pledge:has(input:checked) {
+  border: 3px solid var(--primary-01);
+}
+
+.pledge-btn:not(button:disabled):hover {
+  background-color: var(--primary-02);
+  transition: background-color 300ms;
+}
+
+input[type="radio"] {
+  position: relative;
+  width: 28px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+  accent-color: var(--dark-gray);
+}
+
+input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  border: 1px solid var(--dark-gray);
+  border-radius: 50%;
+  inset: 0;
+  background-color: white;
+}
+
+input[type="radio"]:checked:before {
+  background-color: var(--primary-01);
+  width: 18px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  border: none;
+}
+
+.closePledgeModalIcon:hover {
+  transform: scale(1.35);
+}
+
+input[type="number"]:focus {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* end of active states */

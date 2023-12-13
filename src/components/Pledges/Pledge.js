@@ -29,7 +29,11 @@ const Pledge = ({
 
 const PledgeButton = ({ id, setActivePledgeId, pledgesLeft }) => {
   return (
-    <button className="pledge-btn" onClick={() => setActivePledgeId(id)} disabled={pledgesLeft === 0}>
+    <button
+      className="pledge-btn"
+      onClick={() => setActivePledgeId(id)}
+      disabled={pledgesLeft === 0}
+    >
       {pledgesLeft === 0 ? "Out of Stock" : "Select Reward"}
     </button>
   );
