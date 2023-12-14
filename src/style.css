@@ -605,8 +605,9 @@ button:disabled {
 }
 
 .confirmation-modal-container {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   inset: 0;
 }
