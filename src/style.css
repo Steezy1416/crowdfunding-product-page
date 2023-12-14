@@ -135,6 +135,7 @@ h6 {
   color: var(--primary-01);
   border-bottom: 2px solid white;
   transition: color 300ms;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
@@ -657,6 +658,7 @@ button:disabled {
   background-color: gray;
   color: white;
   transition: background-color 300ms;
+  cursor: pointer;
 }
 
 .pledge:has(input):hover {
@@ -670,6 +672,7 @@ button:disabled {
 .pledge-btn:not(button:disabled):hover {
   background-color: var(--primary-02);
   transition: background-color 300ms;
+  cursor: pointer;
 }
 
 input[type="radio"] {
@@ -707,6 +710,7 @@ input[type="radio"]:checked:before {
 
 .closePledgeModalIcon:hover {
   transform: scale(1.35);
+  cursor: pointer;
 }
 
 input[type="number"]:focus {
