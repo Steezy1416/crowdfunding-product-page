@@ -672,20 +672,22 @@ button:disabled {
 }
 
 input[type="radio"] {
+  -webkit-appearance: none;
   position: relative;
   width: 28px;
   aspect-ratio: 1;
   border-radius: 50%;
+  border: 1px solid var(--dark-gray);
 }
 
 input[type="radio"]:checked {
+  border: 1px solid var(--dark-gray);
   accent-color: var(--dark-gray);
 }
 
 input[type="radio"]::before {
   content: "";
   position: absolute;
-  border: 1px solid var(--dark-gray);
   border-radius: 50%;
   inset: 0;
   background-color: white;
@@ -693,12 +695,12 @@ input[type="radio"]::before {
 
 input[type="radio"]:checked:before {
   background-color: var(--primary-01);
-  width: 18px;
+  width: 65%;
   aspect-ratio: 1;
   border-radius: 50%;
   top: 50%;
-  transform: translateY(-50%);
-  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: none;
 }
 
